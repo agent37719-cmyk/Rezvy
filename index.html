@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0d12">
+<title>Rezvy — Web Developer</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--bg:#0b0d12;--panel:#121620;--panel2:#171d29;--text:#f2f5fa;--muted:#9aa5b5;--line:#252d3a;--lime:#c7f36b;--cyan:#7ce6df;--shadow:0 24px 80px #0008}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#1b2b2b 0,transparent 34%),var(--bg);color:var(--text);font-family:Manrope,system-ui,sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}.mono{font-family:"DM Mono",monospace}.muted{color:var(--muted)}.accent{color:var(--lime)}.eyebrow{font:12px "DM Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}.brand{font-weight:800;font-size:20px;letter-spacing:-1px}.brand span{color:var(--lime)}.navlinks{display:flex;gap:28px;color:#bac3cf;font-size:13px}.navlinks a:hover{color:var(--lime)}.navright{display:flex;align-items:center;gap:14px}.status{font:11px "DM Mono",monospace;color:var(--lime);display:flex;align-items:center;gap:8px}.dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}.menu{display:none;background:none;border:1px solid var(--line);color:white;border-radius:10px;padding:8px 11px}
+.hero{padding:92px 0 76px;display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center;min-height:570px}.hero h1{font-size:clamp(48px,7vw,82px);line-height:1.02;letter-spacing:-.075em;margin:20px 0 22px;max-width:700px}.hero h1 em{font-style:normal;color:var(--lime)}.hero p{max-width:560px;color:var(--muted);font-size:16px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{border:1px solid var(--line);border-radius:999px;padding:13px 20px;color:var(--text);background:transparent;font-weight:700;font-size:13px;transition:.2s}.btn:hover{transform:translateY(-3px);border-color:var(--lime)}.btn.primary{background:var(--lime);border-color:var(--lime);color:#11170a}.btn.primary:hover{box-shadow:0 10px 30px #c7f36630}.hero-card{background:linear-gradient(145deg,#1a2630,#11151e);border:1px solid #ffffff18;border-radius:26px;padding:25px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero-card:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:#c7f36b18;filter:blur(30px);right:-80px;top:-70px}.avatar{height:210px;border-radius:18px;background:linear-gradient(135deg,#243a3a,#111722);display:grid;place-items:center;font-size:88px;position:relative;overflow:hidden}.avatar:after{content:"";position:absolute;width:150px;height:150px;border:1px solid #c7f36b55;border-radius:50%;transform:scale(1.5)}.avatar span{z-index:1;filter:drop-shadow(0 10px 15px #0008)}.cardbottom{display:flex;justify-content:space-between;align-items:end;padding-top:20px}.cardbottom strong{font-size:18px}.cardbottom small{display:block;color:var(--muted);font-size:12px}.codepill{border:1px solid #ffffff20;border-radius:8px;padding:7px 10px;color:var(--lime);font:11px "DM Mono",monospace}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;margin-bottom:100px}.stat{padding:0 24px;border-right:1px solid var(--line)}.stat:first-child{padding-left:0}.stat:last-child{border:0}.stat b{font-size:27px;letter-spacing:-1px}.stat small{display:block;color:var(--muted);font-size:12px}
+section{padding:0 0 105px}.sectionhead{display:flex;justify-content:space-between;align-items:end;margin-bottom:30px;gap:20px}.sectionhead h2{font-size:clamp(30px,4vw,46px);letter-spacing:-.06em;margin:8px 0 0}.sectionhead p{color:var(--muted);max-width:400px;font-size:13px;margin:0}
+.aboutgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px}.panel h3{margin:0 0 12px;font-size:17px}.panel p{margin:0;color:var(--muted);font-size:14px}.skills{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.tag{font:11px "DM Mono",monospace;border:1px solid #ffffff1b;color:#d9e1ea;padding:8px 11px;border-radius:8px;background:#ffffff05}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.filter{background:transparent;color:var(--muted);border:1px solid var(--line);padding:8px 13px;border-radius:999px;font-size:12px}.filter.active,.filter:hover{background:var(--lime);border-color:var(--lime);color:#10150a}.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.project{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.25s}.project:hover{transform:translateY(-5px);border-color:#718b45}.projectart{height:190px;padding:20px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1b2b30,#151925);position:relative;overflow:hidden}.projectart:before,.projectart:after{content:"";position:absolute;border:1px solid #c7f36b33;border-radius:50%;width:250px;height:250px}.projectart:after{width:170px;height:170px}.mockwindow{z-index:1;width:75%;height:125px;background:#0e131b;border:1px solid #ffffff2b;border-radius:10px;box-shadow:0 15px 30px #0008;padding:10px}.mockbar{height:8px;width:40%;background:#c7f36b;border-radius:8px;margin-bottom:12px}.mockline{height:6px;background:#ffffff20;border-radius:8px;margin:8px 0;width:75%}.mocktiles{display:flex;gap:7px;margin-top:12px}.mocktiles i{display:block;height:36px;flex:1;background:#263a39;border-radius:5px}.projectbody{padding:20px}.projecttop{display:flex;justify-content:space-between;gap:12px;align-items:start}.project h3{margin:0;font-size:18px}.demo{font:10px "DM Mono",monospace;color:var(--lime);border:1px solid #c7f36b55;border-radius:5px;padding:4px 7px}.project p{font-size:13px;color:var(--muted);margin:10px 0 16px}.projectfoot{display:flex;justify-content:space-between;align-items:center}.projectfoot span{font:11px "DM Mono",monospace;color:#aeb9c7}.projectfoot button{border:0;background:none;color:var(--lime);font-size:12px;font-weight:700}
+.timeline{display:grid;grid-template-columns:1fr 1fr;gap:16px}.job{display:flex;gap:16px;padding:21px;background:var(--panel);border:1px solid var(--line);border-radius:16px}.jobicon{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;background:#c7f36b17;border-radius:12px;font-size:19px}.job h3{font-size:15px;margin:0}.job small{color:var(--lime);font:11px "DM Mono",monospace}.job p{font-size:12px;color:var(--muted);margin:8px 0 0}
+.contact{background:linear-gradient(135deg,#c7f36b,#9edc77);color:#11170c;border-radius:28px;padding:48px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;position:relative;overflow:hidden}.contact:after{content:"";position:absolute;width:300px;height:300px;border:1px solid #1112;border-radius:50%;right:18%;top:-180px;box-shadow:0 0 0 35px #11105,0 0 0 70px #11104}.contact h2{font-size:clamp(34px,5vw,58px);letter-spacing:-.07em;line-height:1.03;margin:10px 0}.contact p{max-width:490px;color:#29351d;font-size:14px}.contact .btn{background:#11170c;color:white;border-color:#11170c;z-index:1}.contact .btn:hover{background:#26351a}.contact .eyebrow{color:#34451e}.footer{padding:35px 0;display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.footer b{color:var(--text)}
+.modalback{position:fixed;inset:0;background:#05070bdc;backdrop-filter:blur(10px);display:none;place-items:center;padding:20px;z-index:10}.modalback.show{display:grid}.modal{width:min(480px,100%);background:#151b25;border:1px solid #ffffff20;border-radius:22px;padding:27px;box-shadow:var(--shadow);animation:pop .25s ease}.modal h3{font-size:25px;letter-spacing:-1px;margin:8px 0}.modal p{color:var(--muted);font-size:13px}.modalbuttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.modal .btn{padding:10px 15px}.joke{min-height:48px;color:var(--lime)!important;font:12px "DM Mono",monospace}.close{float:right;background:none;border:0;color:var(--muted);font-size:22px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;background:#202a32;border:1px solid #ffffff25;color:white;padding:12px 17px;border-radius:999px;font-size:12px;transition:.25s;z-index:20}.toast.show{opacity:1;transform:translate(-50%,0)}
+@keyframes pop{from{opacity:0;transform:scale(.94) translateY(10px)}to{opacity:1;transform:none}}
+@media(max-width:760px){.navlinks{display:none;position:absolute;top:76px;left:20px;right:20px;padding:18px;background:#151b25;border:1px solid var(--line);border-radius:14px;flex-direction:column;gap:15px;z-index:5}.navlinks.open{display:flex}.menu{display:block}.status{display:none}.hero{grid-template-columns:1fr;padding:65px 0 55px;gap:32px}.hero-card{max-width:420px}.stats{grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:75px}.stat:nth-child(2){border:0}.stat:nth-child(3){padding-left:0}.aboutgrid,.projects,.timeline{grid-template-columns:1fr}.sectionhead{display:block}.sectionhead p{margin-top:12px}.contact{grid-template-columns:1fr;padding:32px}.contact .btn{justify-self:start}.footer{gap:15px;flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="wrap nav">
+  <a class="brand" href="#home">rezvy<span>.</span></a>
+  <nav class="navlinks" id="navlinks"><a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
+  <div class="navright"><span class="status"><i class="dot"></i> OPEN TO OPPORTUNITIES</span><button class="menu" id="menuBtn" aria-label="Toggle menu">☰</button></div>
+</header>
+<main class="wrap">
+<section class="hero" id="home">
+  <div>
+    <div class="eyebrow">WEB DEVELOPER · DHAKA, BANGLADESH</div>
+    <h1>I build things for the <em>web.</em></h1>
+    <p>Hey, I'm Rezvy — a web developer who turns caffeine, curiosity, and questionable numbers of browser tabs into clean, useful digital experiences.</p>
+    <div class="actions"><a class="btn primary" href="#projects">Explore my work ↗</a><button class="btn" id="heroContact">Let's talk <span>↗</span></button></div>
+  </div>
+  <div class="hero-card">
+    <div class="avatar"><span>👨‍💻</span></div>
+    <div class="cardbottom"><div><strong>Rezvy</strong><small>Developer by day. Bug negotiator by night.</small></div><span class="codepill">const coffee = true;</span></div>
+  </div>
+</section>
+<div class="stats">
+  <div class="stat"><b>12<span class="accent">+</span></b><small>Demo projects built</small></div>
+  <div class="stat"><b>2<span class="accent">+</span></b><small>Years learning & building</small></div>
+  <div class="stat"><b>98<span class="accent">%</span></b><small>Pixel-perfect-ish energy</small></div>
+  <div class="stat"><b>∞</b><small>Tabs currently open</small></div>
+</div>
+<section id="about">
+  <div class="sectionhead"><div><div class="eyebrow">01 / A LITTLE ABOUT ME</div><h2>Curious mind. <span class="accent">Builder's hands.</span></h2></div><p>I enjoy solving real problems with thoughtful design and reliable code. Always learning, always shipping.</p></div>
+  <div class="aboutgrid">
+    <div class="panel"><h3>More than just code.</h3><p>I focus on responsive websites, intuitive interfaces, and the small details that make a product feel polished. I like collaborating with people, learning new tools, and making the internet a little less boring.</p></div>
+    <div class="panel"><h3>My toolbox</h3><p>Technologies and tools I work with in this demo profile.</p><div class="skills"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">Tailwind CSS</span><span class="tag">Node.js</span><span class="tag">Git & GitHub</span><span class="tag">Figma</span></div></div>
+  </div>
+</section>
+<section id="projects">
+  <div class="sectionhead"><div><div class="eyebrow">02 / SELECTED WORK</div><h2>Things I've <span class="accent">made.</span></h2></div><p>A few concept projects to show the kind of problems I love working on. Demo content — swap in real projects before publishing.</p></div>
+  <div class="filters"><button class="filter active" data-filter="all">All projects</button><button class="filter" data-filter="frontend">Frontend</button><button class="filter" data-filter="fullstack">Full-stack</button><button class="filter" data-filter="ui">UI / UX</button></div>
+  <div class="projects" id="projectGrid">
+    <article class="project" data-category="frontend"><div class="projectart"><div class="mockwindow"><div class="mockbar"></div><div class="mockline"></div><div class="mockline" style="width:48%"></div><div class="mocktiles"><i></i><i></i><i></i></div></div></div><div class="projectbody"><div class="projecttop"><h3>PixelCart — Online Store</h3><span class="demo">DEMO</span></div><p>A responsive storefront concept with product cards, category browsing, and a smooth shopping flow.</p><div class="projectfoot"><span>React · CSS · JavaScript</span><button onclick="projectInfo('PixelCart')">View details ↗</button></div></div></article>
+    <article class="project" data-category="fullstack"><div class="projectart" style="background:linear-gradient(135deg,#26302b,#17202a)"><div class="mockwindow"><div class="mockbar" style="width:30%;background:#7ce6df"></div><div class="mocktiles"><i style="height:70px"></i><i style="height:70px"></i><i style="height:70px"></i></div><div class="mockline"></div></div></div><div class="projectbody"><div class="projecttop"><h3>TaskFlow — Team Dashboard</h3><span class="demo">DEMO</span></div><p>A productivity dashboard concept featuring task status, progress summaries, and a clean workspace.</p><div class="projectfoot"><span>Node.js · React · API</span><button onclick="projectInfo('TaskFlow')">View details ↗</button></div></div></article>
+    <article class="project" data-category="ui"><div class="projectart" style="background:linear-gradient(135deg,#30263a,#18202a)"><div class="mockwindow"><div class="mockbar" style="background:#d7a7ff"></div><div class="mockline"></div><div class="mockline" style="width:55%"></div><div class="mocktiles"><i style="background:#3b2d4b"></i><i style="background:#3b2d4b"></i></div></div></div><div class="projectbody"><div class="projecttop"><h3>Northstar — SaaS Landing Page</h3><span class="demo">DEMO</span></div><p>A conversion-focused landing page concept with bold typography, feature sections, and clear calls to action.</p><div class="projectfoot"><span>Figma · HTML · CSS</span><button onclick="projectInfo('Northstar')">View details ↗</button></div></div></article>
+    <article class="project" data-category="frontend"><div class="projectart" style="background:linear-gradient(135deg,#263638,#18202a)"><div class="mockwindow"><div class="mockbar"></div><div class="mockline" style="width:85%"></div><div class="mocktiles"><i></i><i></i></div><div class="mockline" style="width:60%"></div></div></div><div class="projectbody"><div class="projecttop"><h3>Wander — Travel Explorer</h3><span class="demo">DEMO</span></div><p>A travel discovery interface concept with destination cards, search, and responsive layouts.</p><div class="projectfoot"><span>JavaScript · CSS · API</span><button onclick="projectInfo('Wander')">View details ↗</button></div></div></article>
+  </div>
+</section>
+<section id="experience">
+  <div class="sectionhead"><div><div class="eyebrow">03 / THE JOURNEY</div><h2>Experience & <span class="accent">learning.</span></h2></div><p>Sample roles for layout demonstration. Replace these with Rezvi's actual work history.</p></div>
+  <div class="timeline">
+    <div class="job"><div class="jobicon">💻</div><div><h3>Junior Web Developer <span class="demo">SAMPLE</span></h3><small>BrightLabs Studio · 2025 — Present</small><p>Built responsive page components, fixed UI issues, and collaborated on small client websites.</p></div></div>
+    <div class="job"><div class="jobicon">🎨</div><div><h3>Frontend Development Intern <span class="demo">SAMPLE</span></h3><small>CreativeStack · 2024 — 2025</small><p>Translated design mockups into accessible interfaces and improved mobile layouts.</p></div></div>
+    <div class="job"><div class="jobicon">📚</div><div><h3>Independent Developer</h3><small>Self-directed · 2023 — Present</small><p>Practicing modern web development through experiments, tutorials, and personal projects.</p></div></div>
+    <div class="job"><div class="jobicon">🚀</div><div><h3>Currently leveling up</h3><small>Every day · Ongoing</small><p>Exploring better architecture, accessibility, performance, and the art of debugging without panic.</p></div></div>
+  </div>
+</section>
+<section id="contact">
+  <div class="contact"><div><div class="eyebrow">04 / YOUR TURN</div><h2>Have a cool idea?<br>Let's build it.</h2><p>Got a project, a question, or a really good meme? My inbox is open. (The meme review committee is strict.)</p></div><button class="btn" id="contactBtn">Contact Rezvi ↗</button></div>
+</section>
+</main>
+<footer class="wrap footer"><span>© <span id="year"></span> <b>Rezvy</b>. Built with curiosity & a suspicious amount of coffee.</span><span class="mono">DESIGNED TO BE DEBUGGED.</span></footer>
+
+<div class="modalback" id="modalBack" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+ <div class="modal"><button class="close" id="closeModal" aria-label="Close">×</button><div class="eyebrow">IMPORTANT BUSINESS</div><h3 id="modalTitle">You are about to contact Rezvy.</h3><p id="modalText">Please confirm that your project is not “just one tiny change” that requires rebuilding the entire internet.</p><p class="joke" id="jokeText">Step 1: Establish that you are, in fact, a real human.</p><div class="modalbuttons"><button class="btn primary" id="yesBtn">I have a real project 😎</button><button class="btn" id="noBtn">I came for the memes</button></div></div>
+</div>
+<div class="toast" id="toast">Copied!</div>
+<script>
+const $=s=>document.querySelector(s);
+$('#year').textContent=new Date().getFullYear();
+$('#menuBtn').addEventListener('click',()=>$('#navlinks').classList.toggle('open'));
+document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>$('#navlinks').classList.remove('open')));
+document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+ document.querySelectorAll('.project').forEach(card=>card.style.display=(btn.dataset.filter==='all'||card.dataset.category===btn.dataset.filter)?'':'none');
+}));
+const modal=$('#modalBack');function openContact(){modal.classList.add('show');$('#jokeText').textContent='Step 1: Establish that you are, in fact, a real human.'}
+$('#contactBtn').onclick=openContact;$('#heroContact').onclick=openContact;$('#closeModal').onclick=()=>modal.classList.remove('show');
+modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('show')});
+const jokes=['Excellent. Please do not say “make it like Facebook, but better” in the first message.','Great! Bonus points if you include a budget and project timeline.','A wild client appears! Rezvi uses RESPONSIVE DESIGN. It is super effective.','Your project has been added to the queue. Queue currently contains 3 cups of coffee.'];
+$('#noBtn').onclick=()=>{$('#jokeText').textContent='MEME ACCESS GRANTED. You have excellent priorities. 😂';$('#modalTitle').textContent='A person of culture.';$('#modalText').textContent='No project? No problem. You may leave one imaginary five-star review.';};
+$('#yesBtn').onclick=()=>{
+ const msg=encodeURIComponent('Hey Rezvy! I have a project idea. Let’s talk about it.');
+ // Replace this placeholder with Rezvi's real email or WhatsApp number before publishing.
+ const email='rezvi@example.com';
+ $('#jokeText').textContent=jokes[Math.floor(Math.random()*jokes.length)];
+ $('#modalTitle').textContent='Opening your email app…';
+ $('#modalText').textContent='If nothing opens, email Rezvi at '+email+'. Replace this demo address with his real one.';
+ setTimeout(()=>{window.location.href='mailto:'+email+'?subject='+encodeURIComponent('Let’s build something')+'&body='+msg;},700);
+};
+function projectInfo(name){$('#modalTitle').textContent=name+' — project brief';$('#modalText').textContent='This is a sample portfolio project. Add the real project URL, screenshots, your role, and measurable results here before publishing.';$('#jokeText').textContent='Demo content alert: no actual client websites were harmed in the making of this portfolio.';$('#yesBtn').style.display='none';$('#noBtn').textContent='Nice, got it';$('#noBtn').onclick=()=>{modal.classList.remove('show');$('#yesBtn').style.display='';$('#noBtn').textContent='I came for the memes';$('#noBtn').onclick=()=>{$('#jokeText').textContent='MEME ACCESS GRANTED. You have excellent priorities. 😂';$('#modalTitle').textContent='A person of culture.';$('#modalText').textContent='No project? No problem. You may leave one imaginary five-star review.';};};modal.classList.add('show');}
+window.projectInfo=projectInfo;
+</script>
+</body>
+</html>
